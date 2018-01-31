@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.e3mall</groupId>
+    <artifactId>e3-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>cn.e3mall</groupId>
+  <artifactId>e3-manager</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>e3-manager-pojo</module>
+  	<module>e3-manager-dao</module>
+  	<module>e3-manager-service</module>
+  	<module>e3-manager-web</module>
+  </modules>
+  
+  <!-- 
+  	后台聚合父工程作用:
+  		1.管理子工程(统一打包,部署,启动[配置tomcat插件])
+  		2.抽取子工程依赖的公共坐标
+   -->
+  	<dependencies>
+  		<dependency>
+  			<groupId>cn.e3mall</groupId>
+  			<artifactId>e3-common</artifactId>
+  			<version>0.0.1-SNAPSHOT</version>
+  		</dependency>
+  	</dependencies>
+  	<build>
+  		<plugins>
+			<!-- 配置Tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- "/"表示把项目发布到tomcat/webapps/ROOT目录下(tomcat根目录) -->
+					<path>/</path>
+					<port>8080</port>
+				</configuration>
+			</plugin>
+		</plugins>
+  	</build>
+</project>
