@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>e3-manager-dao</artifactId>
 
-	<!-- 数据访问层工程 1.mybatis 2.数据库驱动 3.数据源(连接池) 4.pojo工程依赖 -->
+	<!-- 数据访问层工程 1.mybatis(含分页工具) 2.数据库驱动 3.数据源(连接池) 4.pojo工程依赖 -->
 	<dependencies>
 		<!-- Mybatis -->
 		<dependency>

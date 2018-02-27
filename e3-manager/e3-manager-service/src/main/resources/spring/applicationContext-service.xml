@@ -16,8 +16,10 @@
 	http://www.springframework.org/schema/util
 	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<!-- 开启service层的spring注解扫描 -->
-	<context:component-scan base-package="cn.e3.manager.service"></context:component-scan>
+	<!-- 开启service层的spring注解扫描 
+		父容器的包扫描交由子容器完成.
+	-->
+	<!-- <context:component-scan base-package="cn.e3.manager.service"></context:component-scan> -->
 	<!-- 事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
